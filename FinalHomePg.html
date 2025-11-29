@@ -48,16 +48,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-	  position: sticky;
-  	  top: 0;
- 	  z-index: 999;
-	  backdrop-filter: blur(2px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(2px);
+      margin: 0 auto;
     }
-	.brand-logo {
-  	  width: 200px; 
-  	  height: auto;
-  	  display: block;
-}
+
+    .brand-logo {
+      width: 200px; 
+      height: auto;
+      display: block;
+    }
 
     .brand-pill {
       background: none;
@@ -70,12 +72,13 @@
       white-space: nowrap;
     }
 
+    /* 🔥 FIXED HERE — match all other pages */
     .nav-center {
- 	  flex: 1;
-	  display: flex;
-	  justify-content: flex-start;
-	  margin-left: 220px; 
-}
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 170px; 
+    }
 
     .nav-links {
       display: flex;
@@ -125,12 +128,13 @@
       max-width: 650px;
       padding: 0 16px;
     }
-	.hero-logo-img {
- 	  width: 100%;
- 	  max-width: 420px; 
- 	  height: auto;
- 	  display: block;
-}
+
+    .hero-logo-img {
+      width: 100%;
+      max-width: 420px; 
+      height: auto;
+      display: block;
+    }
 
     .hero-logo-box {
       display: inline-block;
@@ -208,14 +212,6 @@
       opacity: 0.85;
     }
 
-    .footer-center {
-      flex: 1;
-      text-align: center;
-      font-size: 13px;
-      color: #555;
-      align-self: center;
-    }
-
     .footer-right {
       min-width: 220px;
       display: flex;
@@ -246,11 +242,6 @@
       margin-bottom: 6px;
     }
 
-    .support-card p {
-      font-size: 11px;
-      color: #666;
-    }
-
     /* ---------- RESPONSIVE ---------- */
 
     @media (max-width: 900px) {
@@ -268,11 +259,6 @@
       .nav-links {
         flex-wrap: wrap;
       }
-
-      .hero-roles {
-        gap: 18px;
-        flex-wrap: wrap;
-      }
     }
 
     @media (max-width: 600px) {
@@ -280,29 +266,8 @@
         min-height: 480px;
       }
 
-      .hero-logo-box {
-        font-size: 16px;
-        padding: 12px 24px;
-      }
-
       .hero-roles {
         flex-direction: column;
-        gap: 6px;
-      }
-
-      .site-footer {
-        text-align: center;
-        align-items: center;
-      }
-
-      .footer-left {
-        text-align: left;
-        width: 100%;
-      }
-
-      .footer-center {
-        order: -1;
-        margin-bottom: 8px;
       }
     }
   </style>
@@ -315,11 +280,11 @@
 
     <!-- top nav -->
     <header class="nav-bar">
-     <div class="brand-pill">
-  <a href="FinalHomePg.html">
-    <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="brand-logo">
-  </a>
-</div>
+      <div class="brand-pill">
+        <a href="FinalHomePg.html">
+          <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="brand-logo">
+        </a>
+      </div>
 
       <div class="nav-center">
         <nav class="nav-links">
@@ -340,8 +305,8 @@
     <div class="hero-content-wrapper">
       <div class="hero-content">
         <div class="hero-logo-box">
-  <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="hero-logo-img">
-</div>
+          <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="hero-logo-img">
+        </div>
 
         <div class="hero-roles">
           <span>Graphic Designer</span>
@@ -354,7 +319,7 @@
           for brands, businesses, and visionaries.
         </p>
 
-       <a href="ContactUsPg.html" class="btn-primary">Contact me</a>
+        <a href="ContactUsPg.html" class="btn-primary">Contact me</a>
       </div>
     </div>
   </section>
@@ -388,5 +353,3 @@
 
 </body>
 </html>
-
-
