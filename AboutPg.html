@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About • Tigerhorse[design]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background-color: #f1f1f1;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- HERO BACKGROUND ---------- */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      color: #fff;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55)),
+        url("HomePgBack.jpg");
+      background-size: cover;
+      background-position: center center;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* ---------- NAV BAR (same as other pages) ---------- */
+
+    .nav-bar {
+      width: 100%;
+      max-width: 1200px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(2px);
+      margin: 0 auto;
+    }
+
+    .brand-logo {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-pill {
+      background: none;
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 170px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right a {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ---------- ABOUT CONTENT ---------- */
+
+    .about-wrapper {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px 60px;
+    }
+
+    .about-inner {
+      width: 100%;
+      max-width: 960px;
+      background: rgba(241, 241, 241, 0.96);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      padding: 32px 32px 40px;
+      color: #111;
+    }
+
+    .about-main {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+
+    /* Left side intro */
+
+    .about-left-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .about-name {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .about-bio {
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 360px;
+      color: #333;
+      margin-bottom: 18px;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 7px 18px;
+      border-radius: 2px;
+      border: 1px solid #111;
+      font-size: 13px;
+      font-weight: 500;
+      background-color: #fdfdfd;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-outline:hover {
+      background-color: #f7f7f7;
+    }
+
+    /* Right side services-style list */
+
+    .about-right {
+      flex: 1;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .about-service-block {
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .about-service-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .about-service-text {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* ---------- SOCIAL & CONTACT ---------- */
+
+    .about-social {
+      text-align: center;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .about-social-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    .about-social-links a {
+      border-bottom: 1px solid transparent;
+    }
+
+    .about-social-links a:hover {
+      border-bottom-color: #111;
+    }
+
+    .about-contact-text {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #111;
+      border-radius: 2px;
+      padding: 9px 26px;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: #f7f7f7;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .nav-bar {
+        flex-wrap: wrap;
+        row-gap: 12px;
+      }
+
+      .nav-center {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .about-main {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-inner {
+        padding: 24px 18px 30px;
+      }
+
+      .brand-logo {
+        width: 160px;
+      }
+
+      .about-name {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <!-- NAV BAR -->
+    <header class="nav-bar">
+      <div class="brand-pill">
+        <a href="FinalHomePg.html">
+          <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="brand-logo">
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <nav class="nav-links">
+          <a href="PortfolioPg.html">Projects</a>
+          <a href="WebnovelsPg.html">Webnovels</a>
+          <a href="ShopPg.html">Shop</a>
+          <a href="ServicesPg.html">Services</a>
+          <a href="AboutPg.html">About</a>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <a href="ContactUsPg.html">Contact me</a>
+      </div>
+    </header>
+
+    <!-- ABOUT CONTENT -->
+    <div class="about-wrapper">
+      <div class="about-inner">
+
+        <div class="about-main">
+          <!-- Left column -->
+          <div class="about-left">
+            <div class="about-left-label">Hello, my name is:</div>
+            <div class="about-name">Justin Nguyen</div>
+            <p class="about-bio">
+              I craft expressive designs and impactful visuals for brands, businesses, and visionaries.
+              Drawing from my skills as a photographer, graphic designer, web designer, and writer,
+              I focus on aesthetics, structure, and results.
+            </p>
+            <a href="PortfolioPg.html" class="btn-outline">Projects</a>
+          </div>
+
+          <!-- Right column -->
+          <div class="about-right">
+            <div class="about-service-block">
+              <div class="about-service-title">Graphic Design</div>
+              <div class="about-service-text">
+                Logos, posters, print materials, and digital graphics that give your message structure,
+                clarity, and style.
+              </div>
+            </div>
+
+            <div class="about-service-block">
+              <div class="about-service-title">Web Design</div>
+              <div class="about-service-text">
+                Modern, responsive websites with clean layouts, strong hierarchy, and a focus on usability,
+                SEO, and performance.
+              </div>
+            </div>
+
+            <div class="about-service-block">
+              <div class="about-service-title">Photography</div>
+              <div class="about-service-text">
+                Artistic &amp; editorial photography, product and lifestyle shoots, and imagery that
+                supports your visual storytelling.
+              </div>
+            </div>
+
+            <div class="about-service-block" style="margin-bottom:0;">
+              <div class="about-service-title">Brand Identity &amp; Strategy</div>
+              <div class="about-service-text">
+                From logos and color systems to social media kits and brand guidelines, I create
+                frameworks that keep your presence consistent and instantly recognizable.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social + contact section -->
+        <div class="about-social">
+          <div class="about-social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+          </div>
+
+          <p class="about-contact-text">
+            Any more questions or ideas? Reach out and I’ll help you refine and bring your designs to life.
+          </p>
+
+          <a href="ContactUsPg.html" class="btn-primary">Contact me</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

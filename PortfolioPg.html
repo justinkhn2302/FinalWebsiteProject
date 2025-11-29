@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio • Tigerhorse[design]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background-color: #f1f1f1;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- HERO BACKGROUND ---------- */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      color: #fff;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55)),
+        url("HomePgBack.jpg");
+      background-size: cover;
+      background-position: center center;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* ---------- NAV BAR ---------- */
+
+    .nav-bar {
+      width: 100%;
+      max-width: 1200px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(2px);
+      margin: 0 auto;
+    }
+
+    .brand-logo {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-pill {
+      background: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 170px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ---------- PORTFOLIO CARD ---------- */
+
+    .portfolio-wrapper {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px 60px;
+    }
+
+    .portfolio-card {
+      width: 100%;
+      max-width: 960px;
+      background: rgba(241, 241, 241, 0.96);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      padding: 28px 28px 32px;
+      color: #111;
+    }
+
+    .portfolio-card h1 {
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-card p.intro {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 22px;
+    }
+
+    .portfolio-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    figure {
+      margin: 0;
+      width: 200px;
+      text-align: center;
+    }
+
+    figure img {
+      width: 200px;
+      height: 200px;
+      border: 1px solid gray;
+      box-shadow: 2px 3px 6px gray;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    figure img:hover {
+      transform: scale(1.03);
+    }
+
+    figcaption {
+      font-size: 12px;
+      line-height: 1.4em;
+      margin-top: 6px;
+      color: #333;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .nav-bar {
+        flex-wrap: wrap;
+        row-gap: 12px;
+      }
+
+      .nav-center {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-card {
+        padding: 22px 18px 26px;
+      }
+
+      .brand-logo {
+        width: 160px;
+      }
+
+      figure {
+        width: 100%;
+        max-width: 260px;
+      }
+
+      figure img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <!-- NAV BAR -->
+    <header class="nav-bar">
+       <div class="brand-pill">
+  <a href="FinalHomePg.html">
+    <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="brand-logo">
+  </a>
+</div>
+
+      <div class="nav-center">
+        <nav class="nav-links">
+          <a href="PortfolioPg.html">Projects</a>
+          <a href="WebnovelsPg.html">Webnovels</a>
+          <a href="ShopPage.html">Shop</a>
+          <a href="ServicesPg.html">Services</a>
+          <a href="AboutPg.html">About</a>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <a href="ContactUsPg.html">Contact me</a>
+      </div>
+    </header>
+
+    <!-- PORTFOLIO CARD -->
+    <div class="portfolio-wrapper">
+      <div class="portfolio-card">
+        <h1>Portfolio</h1>
+        <p class="intro">
+          A selection of my graphic design work. Click any thumbnail to view the full piece.
+        </p>
+
+        <div class="portfolio-grid">
+
+          <figure>
+            <a href="TitleFightP1.jpg" target="_blank">
+              <img src="Thumb-TitleFightP1.jpg" alt="Title Fight Page">
+            </a>
+            <figcaption>Title Fight page design</figcaption>
+          </figure>
+
+          <figure>
+            <a href="annualrepfront.jpg" target="_blank">
+              <img src="Thumb-annualrepfront.jpg" alt="Tesla Magazine Cover">
+            </a>
+            <figcaption>Tesla magazine cover</figcaption>
+          </figure>
+
+          <figure>
+            <a href="StarMeal.jpg" target="_blank">
+              <img src="Thumb-StarMeal.jpg" alt="Carl's Jr Ad">
+            </a>
+            <figcaption>Carl's Jr advertisement</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Webnovels • Tigerhorse[design]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background-color: #f1f1f1;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- HERO BACKGROUND ---------- */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      color: #fff;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55)),
+        url("HomePgBack.jpg");
+      background-size: cover;
+      background-position: center center;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* ---------- NAV BAR ---------- */
+
+    .nav-bar {
+      width: 100%;
+      max-width: 1200px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(2px);
+      margin: 0 auto;
+    }
+
+    .brand-logo {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-pill {
+      background: none;
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 170px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right a {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ---------- WEBNOVELS CONTENT ---------- */
+
+    .webnovels-wrapper {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px 60px;
+    }
+
+    .webnovels-card {
+      width: 100%;
+      max-width: 960px;
+      background: rgba(241, 241, 241, 0.96);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      padding: 28px 28px 32px;
+      color: #111;
+    }
+
+    .webnovels-card h1 {
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .webnovels-card p.intro {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 22px;
+    }
+
+    .novel-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .novel-card {
+      width: 280px;
+      background-color: #f9f9f9;
+      border-radius: 14px;
+      border: 1px solid #dddddd;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .novel-cover-box {
+      background-color: #e7e7e7;
+      border-radius: 10px;
+      border: 1px solid #d0d0d0;
+      padding: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .novel-cover-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .novel-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .novel-meta {
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .novel-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    /* buttons */
+
+    .btn-primary {
+      display: block;
+      width: 100%;
+      background-color: #ffffff;
+      color: #111;
+      border-radius: 3px;
+      padding: 8px 0;
+      border: 1px solid #cccccc;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background-color: #f7f7f7;
+    }
+
+    /* wrapper to keep EPUB + PDF spacing consistent */
+    .novel-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;       
+      margin-top: 10px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .nav-bar {
+        flex-wrap: wrap;
+        row-gap: 12px;
+      }
+
+      .nav-center {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .webnovels-card {
+        padding: 22px 18px 26px;
+      }
+
+      .brand-logo {
+        width: 160px;
+      }
+
+      .novel-card {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <!-- NAV BAR -->
+    <header class="nav-bar">
+      <div class="brand-pill">
+        <a href="FinalHomePg.html">
+          <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="brand-logo">
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <nav class="nav-links">
+          <a href="PortfolioPg.html">Projects</a>
+          <a href="WebnovelsPg.html">Webnovels</a>
+          <a href="ShopPage.html">Shop</a>
+          <a href="ServicesPg.html">Services</a>
+          <a href="AboutPg.html">About</a>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <a href="ContactUsPg.html">Contact me</a>
+      </div>
+    </header>
+
+    <!-- WEBNOVELS CARD -->
+    <div class="webnovels-wrapper">
+      <div class="webnovels-card">
+        <h1>Webnovels</h1>
+        <p class="intro">
+          Long-form stories from the Tigerhorse universe. Here are current and upcoming projects.
+        </p>
+
+        <div class="novel-grid">
+
+          <!-- Novel 1 – real novel -->
+          <div class="novel-card">
+            <div>
+              <div class="novel-cover-box">
+                <img src="OrchostraitorCover.jpg" alt="Orchostraitor Cover">
+              </div>
+              <div class="novel-title">Orchostraitor</div>
+              <div class="novel-meta">EPUB / PDF • Dark Fantasy • Ongoing</div>
+              <p class="novel-desc">
+                Wanderers cross a bleeding plain toward and ancient monolith known only as the Immorath.
+                Reality thins, memories fracture, and something ancient waits for them, beckoning them toward destiny.
+              </p>
+            </div>
+
+            <div class="novel-buttons">
+              <a href="OrchostraitorEpub.epub" class="btn-primary" download>Download EPUB</a>
+              <a href="Orchostraitor.pdf" class="btn-primary" download>Download PDF</a>
+            </div>
+          </div>
+
+          <!-- Novel 2 – placeholder -->
+          <div class="novel-card">
+            <div>
+              <div class="novel-cover-box">
+                <img src="PlaceholderBookImg.jpg" alt="Upcoming Web Novel">
+              </div>
+              <div class="novel-title">Upcoming Project</div>
+              <div class="novel-meta">Web Novel • Coming Soon</div>
+              <p class="novel-desc">
+                Placeholder for an upcoming title. Replace this with your next idea or experimental story.
+              </p>
+            </div>
+
+            <div class="novel-buttons">
+              <a href="#" class="btn-primary">Download EPUB</a>
+              <a href="#" class="btn-primary">Download PDF</a>
+            </div>
+          </div>
+
+          <!-- Novel 3 – placeholder -->
+          <div class="novel-card">
+            <div>
+              <div class="novel-cover-box">
+                <img src="PlaceholderBookImg.jpg" alt="Future Project">
+              </div>
+              <div class="novel-title">Future Story</div>
+              <div class="novel-meta">Web Novel • In Development</div>
+              <p class="novel-desc">
+                A slot for future expansions—side stories, alternate worlds, or standalone mini-series.
+              </p>
+            </div>
+
+            <div class="novel-buttons">
+              <a href="#" class="btn-primary">Download EPUB</a>
+              <a href="#" class="btn-primary">Download PDF</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

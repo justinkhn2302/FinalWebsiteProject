@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact • Tigerhorse[design]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Optional Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background-color: #f1f1f1;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- HERO / PAGE WRAP ---------- */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      color: #fff;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55)),
+        url("HomePgBack.jpg");
+      background-size: cover;
+      background-position: center center;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* ---------- NAV BAR (matches home) ---------- */
+
+    .nav-bar {
+      width: 100%;
+      max-width: 1200px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(2px);
+      margin: 0 auto;
+    }
+
+    .brand-logo {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-pill {
+      background: none;
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 170px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right a {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ---------- CONTACT CONTENT ---------- */
+
+    .contact-wrapper {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px 60px;
+    }
+
+    .contact-card {
+      width: 100%;
+      max-width: 640px;
+      background: rgba(241, 241, 241, 0.96);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      padding: 28px 28px 32px;
+      color: #111;
+    }
+
+    .contact-card h1 {
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .contact-card p.intro {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 22px;
+    }
+
+    form {
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 13px;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 12px 14px 10px;
+      margin-bottom: 16px;
+      background-color: #f7f7f7;
+    }
+
+    legend {
+      padding: 0 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #444;
+    }
+
+    /* rows for radios / checkboxes */
+    .option-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .option-row input[type="radio"],
+    .option-row input[type="checkbox"] {
+      margin: 0;
+    }
+
+    .option-row label {
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      margin-top: 8px;
+    }
+
+    select[multiple] {
+      min-height: 80px;
+    }
+
+    .submit-row {
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    input[type="submit"] {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #111;
+      border-radius: 2px;
+      padding: 9px 26px;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    input[type="submit"]:hover {
+      background-color: #f7f7f7;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .nav-bar {
+        flex-wrap: wrap;
+        row-gap: 12px;
+      }
+
+      .nav-center {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-card {
+        padding: 22px 18px 26px;
+      }
+
+      .brand-logo {
+        width: 160px;
+      }
+    }
+  </style>
+
+  <script>
+    // Toggle all OS checkboxes on/off
+    function toggleAllOS(source) {
+      const checkboxes = document.querySelectorAll('.os-option');
+      checkboxes.forEach(cb => cb.checked = source.checked);
+    }
+  </script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <!-- NAV BAR -->
+    <header class="nav-bar">
+      <div class="brand-pill">
+  <a href="FinalHomePg.html">
+    <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="brand-logo">
+  </a>
+</div>
+
+      <div class="nav-center">
+        <nav class="nav-links">
+          <a href="PortfolioPg.html">Projects</a>
+          <a href="WebnovelsPg.html">Webnovels</a>
+          <a href="ShopPage.html">Shop</a>
+          <a href="ServicesPg.html">Services</a>
+          <a href="AboutPg.html">About</a>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <a href="ContactUsPg.html">Contact me</a>
+      </div>
+    </header>
+
+    <!-- CONTACT CARD -->
+    <div class="contact-wrapper">
+      <div class="contact-card">
+        <h1>Contact Us</h1>
+        <p class="intro">
+          Tell me a bit about your project, and I’ll get back to you as soon as I can.
+        </p>
+
+        <form action="https://formsubmit.co/justinkhn2302@gmail.com" method="POST">
+          <!-- First / Last Name -->
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="first_name" placeholder="First Name" required>
+
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="last_name" placeholder="Last Name" required>
+
+          <!-- Email -->
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+          <!-- Reason for contacting -->
+          <fieldset>
+            <legend>Reason for Contacting Us</legend>
+            <div class="radio-group">
+              <div class="option-row">
+                <input type="radio" name="services" id="design" value="Design Services" required>
+                <label for="design">Design Services</label>
+              </div>
+
+              <div class="option-row">
+                <input type="radio" name="services" id="turnkey" value="Turnkey Website">
+                <label for="turnkey">Turnkey Website</label>
+              </div>
+
+              <div class="option-row">
+                <input type="radio" name="services" id="brandstrat" value="Brand Identiy and Strategy">
+                <label for="brandstrat">Brand Identity &amp; Strategy</label>
+              </div>
+				
+				<div class="option-row">
+                <input type="radio" name="services" id="photography" value="Photography">
+                <label for="photography">Photography</label>
+              </div>
+				
+				<div class="option-row">
+                <input type="radio" name="services" id="other" value="Other">
+                <label for="other">Other</label>
+              </div>
+				
+            </div>
+			  
+          </fieldset>
+
+          <!-- Operating System -->
+          <fieldset>
+            <legend>Operating System</legend>
+            <div class="checkbox-group">
+              <div class="option-row">
+                <input type="checkbox" id="all-os" onclick="toggleAllOS(this)">
+                <label for="all-os"><strong>Check/uncheck all</strong></label>
+              </div>
+
+              <div class="option-row">
+                <input type="checkbox" name="os[]" id="macos" value="MacOS" class="os-option">
+                <label for="macos">Macintosh</label>
+              </div>
+
+              <div class="option-row">
+                <input type="checkbox" name="os[]" id="windows" value="Windows" class="os-option">
+                <label for="windows">Windows</label>
+              </div>
+
+              <div class="option-row">
+                <input type="checkbox" name="os[]" id="unix" value="UNIX" class="os-option">
+                <label for="unix">UNIX</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Time Frame -->
+          <fieldset>
+            <legend>Time Frame</legend>
+            <label for="timeframe" style="margin-bottom:6px;font-size:12px;color:#555;">
+              When would you like to start with us?
+            </label>
+          <select id="timeframe" name="time_frame">
+ 			 <option value="" disabled selected>Select a time frame</option>
+ 			 <option value="this month">This Month</option>
+ 			 <option value="this quarter">This Quarter</option>
+  			 <option value="this year">This Year</option>
+ 			 <option value="not sure">Not Sure</option>
+		  </select>
+          </fieldset>
+
+          <!-- Message -->
+          <label for="message">Project Details / Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project, goals, and any deadlines."></textarea>
+
+          <!-- Submit -->
+          <div class="submit-row">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop • Tigerhorse[design]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background-color: #f1f1f1;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- HERO BACKGROUND ---------- */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      color: #fff;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55)),
+        url("HomePgBack.jpg");
+      background-size: cover;
+      background-position: center center;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* ---------- NAV BAR (same style as other pages) ---------- */
+
+    .nav-bar {
+      width: 100%;
+      max-width: 1200px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(2px);
+      margin: 0 auto;
+    }
+
+    .brand-logo {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-pill {
+      background: none;
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 170px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right a {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ---------- SHOP CONTENT ---------- */
+
+    .shop-wrapper {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px 60px;
+    }
+
+    .shop-card {
+      width: 100%;
+      max-width: 960px;
+      background: rgba(241, 241, 241, 0.96);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      padding: 28px 28px 32px;
+      color: #111;
+    }
+
+    .shop-card h1 {
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .shop-card p.intro {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 22px;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .product-card {
+      width: 220px;
+      background-color: #f9f9f9;
+      border-radius: 14px;
+      border: 1px solid #dddddd;
+      padding: 16px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-type {
+      font-size: 12px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .product-image-box {
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      border: 1px solid #d0d0d0;
+      padding: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .product-price {
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .btn-primary {
+      display: block;
+      width: 100%;
+      background-color: #111;
+      color: #fff;
+      border-radius: 3px;
+      padding: 8px 0;
+      border: 1px solid #111;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .btn-primary:hover {
+      background-color: #222;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .nav-bar {
+        flex-wrap: wrap;
+        row-gap: 12px;
+      }
+
+      .nav-center {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .product-card {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .shop-card {
+        padding: 22px 18px 26px;
+      }
+
+      .brand-logo {
+        width: 160px;
+      }
+
+      .product-card {
+        width: 100%;
+        max-width: 260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <!-- NAV BAR -->
+    <header class="nav-bar">
+      <div class="brand-pill">
+        <a href="FinalHomePg.html">
+          <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="brand-logo">
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <nav class="nav-links">
+          <a href="PortfolioPg.html">Projects</a>
+          <a href="WebnovelsPg.html">Webnovels</a>
+          <a href="ShopPage.html">Shop</a>
+          <a href="ServicesPg.html">Services</a>
+          <a href="AboutPg.html">About</a>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <a href="ContactUsPg.html">Contact me</a>
+      </div>
+    </header>
+
+    <!-- SHOP CARD -->
+    <div class="shop-wrapper">
+      <div class="shop-card">
+        <h1>Shop</h1>
+        <p class="intro">
+          Browse my latest designs and creative products — shirts, prints, and digital goods crafted with care.
+        </p>
+
+        <div class="product-grid">
+
+          <!-- Product 1 – real product -->
+          <div class="product-card">
+            <div class="product-type">T-Shirt • Apparel</div>
+            <div class="product-image-box">
+              <!-- replace with your actual product image -->
+              <img src="PlaceholderBookImg.jpg" alt="Nature / Nurture Shirt">
+            </div>
+            <div class="product-name">Nature / Nurture Tee</div>
+            <div class="product-price">$25.00</div>
+            <a href="https://gumroad.com" target="_blank" class="btn-primary">
+              Buy on Gumroad
+            </a>
+          </div>
+
+          <!-- Product 2 – placeholder -->
+          <div class="product-card">
+            <div class="product-type">Print • Wall Art</div>
+            <div class="product-image-box">
+              <img src="PlaceholderBookImg.jpg" alt="Upcoming Print">
+            </div>
+            <div class="product-name">Upcoming Print</div>
+            <div class="product-price">Coming soon</div>
+            <a href="#" class="btn-primary">
+              Buy on Gumroad
+            </a>
+          </div>
+
+          <!-- Product 3 – placeholder -->
+          <div class="product-card">
+            <div class="product-type">Digital • Asset Pack</div>
+            <div class="product-image-box">
+              <img src="PlaceholderBookImg.jpg" alt="Future Digital Pack">
+            </div>
+            <div class="product-name">Future Asset Pack</div>
+            <div class="product-price">Coming soon</div>
+            <a href="#" class="btn-primary">
+              Buy on Gumroad
+            </a>
+          </div>
+
+          <!-- Product 4 – placeholder -->
+          <div class="product-card">
+            <div class="product-type">Other • Experimental</div>
+            <div class="product-image-box">
+              <img src="PlaceholderBookImg.jpg" alt="Experimental Product">
+            </div>
+            <div class="product-name">Experimental Drop</div>
+            <div class="product-price">Coming soon</div>
+            <a href="#" class="btn-primary">
+              Buy on Gumroad
+            </a>
+          </div>
+		 <!-- Product 5 – placeholder -->
+          <div class="product-card">
+            <div class="product-type">Other • Experimental</div>
+            <div class="product-image-box">
+              <img src="PlaceholderBookImg.jpg" alt="Experimental Product">
+            </div>
+            <div class="product-name">Experimental Drop</div>
+            <div class="product-price">Coming soon</div>
+            <a href="#" class="btn-primary">
+              Buy on Gumroad
+            </a>
+          </div>
+		 <!-- Product 6 – placeholder -->
+          <div class="product-card">
+            <div class="product-type">Other • Experimental</div>
+            <div class="product-image-box">
+              <img src="PlaceholderBookImg.jpg" alt="Experimental Product">
+            </div>
+            <div class="product-name">Experimental Drop</div>
+            <div class="product-price">Coming soon</div>
+            <a href="#" class="btn-primary">
+              Buy on Gumroad
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

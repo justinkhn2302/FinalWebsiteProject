@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tigerhorse[design]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background-color: #f1f1f1;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      position: relative;
+      min-height: 520px;
+      color: #fff;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)),
+        url("HomePgBack.jpg"); 
+      background-size: cover;
+      background-position: center center;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* top bar */
+    .nav-bar {
+      width: 100%;
+      max-width: 1200px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+	  position: sticky;
+  	  top: 0;
+ 	  z-index: 999;
+	  backdrop-filter: blur(2px);
+    }
+	.brand-logo {
+  	  width: 200px; 
+  	  height: auto;
+  	  display: block;
+}
+
+    .brand-pill {
+      background: none;
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .nav-center {
+ 	  flex: 1;
+	  display: flex;
+	  justify-content: flex-start;
+	  margin-left: 250px; 
+}
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right a {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* center content */
+
+    .hero-content-wrapper {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 70px;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 650px;
+      padding: 0 16px;
+    }
+	.hero-logo-img {
+ 	  width: 100%;
+ 	  max-width: 420px; 
+ 	  height: auto;
+ 	  display: block;
+}
+
+    .hero-logo-box {
+      display: inline-block;
+      background: none;
+      color: #111;
+      padding: 0;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      box-shadow: none;
+      margin-bottom: 0px;
+    }
+
+    .hero-roles {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      opacity: 0.95;
+    }
+
+    .hero-subtext {
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 24px;
+      opacity: 0.9;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #111;
+      border-radius: 2px;
+      padding: 9px 26px;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: #f7f7f7;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    .site-footer {
+      background-color: #e4e4e4;
+      padding: 30px 8% 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      line-height: 1.8;
+      min-width: 170px;
+    }
+
+    .footer-left a {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer-left .copyright {
+      margin-top: 10px;
+      opacity: 0.85;
+    }
+
+    .footer-center {
+      flex: 1;
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      align-self: center;
+    }
+
+    .footer-right {
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .support-card {
+      background-color: #fdfdfd;
+      padding: 10px 16px 14px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+      width: 100%;
+      text-align: center;
+    }
+
+    .support-btn {
+      display: block;
+      width: 100%;
+      border-radius: 2px;
+      border: 1px solid #cccccc;
+      padding: 7px 0;
+      font-size: 13px;
+      font-weight: 600;
+      background-color: #ffffff;
+      cursor: pointer;
+      margin-bottom: 6px;
+    }
+
+    .support-card p {
+      font-size: 11px;
+      color: #666;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .nav-bar {
+        flex-wrap: wrap;
+        row-gap: 12px;
+      }
+
+      .nav-center {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .hero-roles {
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 480px;
+      }
+
+      .hero-logo-box {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+
+      .hero-roles {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .site-footer {
+        text-align: center;
+        align-items: center;
+      }
+
+      .footer-left {
+        text-align: left;
+        width: 100%;
+      }
+
+      .footer-center {
+        order: -1;
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <!-- top nav -->
+    <header class="nav-bar">
+     <div class="brand-pill">
+  <a href="FinalHomePg.html">
+    <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="brand-logo">
+  </a>
+</div>
+
+      <div class="nav-center">
+        <nav class="nav-links">
+          <a href="PortfolioPg.html">Projects</a>
+          <a href="WebnovelsPg.html">Webnovels</a>
+          <a href="ShopPage.html">Shop</a>
+          <a href="ServicesPg.html">Services</a>
+          <a href="AboutPg.html">About</a>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <a href="ContactUsPg.html">Contact me</a>
+      </div>
+    </header>
+
+    <!-- center hero content -->
+    <div class="hero-content-wrapper">
+      <div class="hero-content">
+        <div class="hero-logo-box">
+  <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="hero-logo-img">
+</div>
+
+        <div class="hero-roles">
+          <span>Graphic Designer</span>
+          <span>Writer</span>
+          <span>Web Designer</span>
+        </div>
+
+        <p class="hero-subtext">
+          Crafting expressive designs and impactful visuals
+          for brands, businesses, and visionaries.
+        </p>
+
+       <a href="ContactUsPg.html" class="btn-primary">Contact me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-left">
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms and Conditions</a>
+      <div class="copyright">
+        Tigerhorse Design all rights reserved
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <div class="support-card">
+        <a class="support-btn" href="https://ko-fi.com/yourname" target="_blank">
+          Ko-fi link
+        </a>
+        <p>Support my work</p>
+      </div>
+
+      <div class="support-card">
+        <a class="support-btn" href="https://gumroad.com/yourname" target="_blank">
+          Gumroad link
+        </a>
+        <p>Support my work</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

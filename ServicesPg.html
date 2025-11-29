@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services • Tigerhorse[design]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background-color: #f1f1f1;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- HERO BACKGROUND ---------- */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      color: #fff;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55)),
+        url("HomePgBack.jpg");
+      background-size: cover;
+      background-position: center center;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* ---------- NAV BAR (same as other pages) ---------- */
+
+    .nav-bar {
+      width: 100%;
+      max-width: 1200px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(2px);
+      margin: 0 auto;
+    }
+
+    .brand-logo {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-pill {
+      background: none;
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 170px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right a {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ---------- SERVICES CONTENT ---------- */
+
+    .services-wrapper {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px 60px;
+    }
+
+    .services-card {
+      width: 100%;
+      max-width: 960px;
+      background: rgba(241, 241, 241, 0.96);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      padding: 28px 28px 32px;
+      color: #111;
+    }
+
+    .services-title {
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .services-sub {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 26px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .service-card {
+      background-color: #f9f9f9;
+      border-radius: 14px;
+      border: 1px solid #dddddd;
+      padding: 20px 22px 18px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-name {
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #333;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 7px 18px;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 2px;
+      border: 1px solid #222;
+      background-color: #ffffff;
+      color: #111;
+      cursor: pointer;
+      text-align: center;
+      margin: 0 auto;
+      min-width: 90px;
+    }
+
+    .btn-outline:hover {
+      background-color: #f7f7f7;
+    }
+
+    /* Additional services strip */
+
+    .extra-services {
+      margin-top: 10px;
+      background-color: #f9f9f9;
+      border-radius: 14px;
+      border: 1px solid #dddddd;
+      padding: 20px 22px 18px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .extra-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .extra-desc {
+      font-size: 13px;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .extra-btn {
+      display: inline-block;
+      padding: 7px 18px;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 2px;
+      border: 1px solid #222;
+      background-color: #ffffff;
+      color: #111;
+      cursor: pointer;
+    }
+
+    .extra-btn:hover {
+      background-color: #f7f7f7;
+    }
+
+    /* Bottom CTA */
+
+    .cta-row {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .cta-row p {
+      margin-bottom: 8px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #111;
+      border-radius: 2px;
+      padding: 9px 26px;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    .cta-btn:hover {
+      background-color: #f7f7f7;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 900px) {
+      .nav-bar {
+        flex-wrap: wrap;
+        row-gap: 12px;
+      }
+
+      .nav-center {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services-card {
+        padding: 22px 18px 26px;
+      }
+
+      .brand-logo {
+        width: 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <!-- NAV BAR -->
+    <header class="nav-bar">
+      <div class="brand-pill">
+        <a href="FinalHomePg.html">
+          <img src="Tigerhorse[design]logo.png" alt="Tigerhorse Logo" class="brand-logo">
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <nav class="nav-links">
+          <a href="PortfolioPg.html">Projects</a>
+          <a href="WebnovelsPg.html">Webnovels</a>
+          <a href="ShopPage.html">Shop</a>
+          <a href="ServicesPg.html">Services</a>
+          <a href="AboutPg.html">About</a>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <a href="ContactUsPg.html">Contact me</a>
+      </div>
+    </header>
+
+    <!-- SERVICES CARD -->
+    <div class="services-wrapper">
+      <div class="services-card">
+        <h1 class="services-title">Services</h1>
+        <p class="services-sub">
+          Design, web, and brand support tailored for small businesses, creators, and storytellers.
+        </p>
+
+        <!-- top 4 cards -->
+        <div class="service-grid">
+          <!-- Design Services -->
+          <div class="service-card">
+            <div>
+              <div class="service-name">Design Services</div>
+              <p class="service-desc">
+                Custom design for digital and print. Web layouts, posters, social media graphics,
+                and visual assets that feel clear, balanced, and expressive.
+              </p>
+            </div>
+            <a href="ContactUsPg.html" class="btn-outline">$20 hourly</a>
+          </div>
+
+          <!-- Turnkey Website -->
+          <div class="service-card">
+            <div>
+              <div class="service-name">Turnkey Website</div>
+              <p class="service-desc">
+                Launch-ready websites from concept to live site. I handle design, build, hosting setup,
+                and basic SEO so you can go live without touching a single line of code.
+              </p>
+            </div>
+            <a href="ContactUsPg.html" class="btn-outline">$800+</a>
+          </div>
+
+          <!-- Brand Identity & Strategy -->
+          <div class="service-card">
+            <div>
+              <div class="service-name">Brand Identity &amp; Strategy</div>
+              <p class="service-desc">
+                Logos, color palettes, and typography that express who you are—plus guidance on how
+                to use them across your website, socials, and print materials.
+              </p>
+            </div>
+            <a href="ContactUsPg.html" class="btn-outline">$350+</a>
+          </div>
+
+          <!-- Photography -->
+          <div class="service-card">
+            <div>
+              <div class="service-name">Photography</div>
+              <p class="service-desc">
+                Product and lifestyle photography that matches your design aesthetic so your brand
+                feels unified across every platform and touchpoint.
+              </p>
+            </div>
+            <a href="ContactUsPg.html" class="btn-outline">$20 hourly</a>
+          </div>
+        </div>
+
+        <!-- Additional services strip -->
+        <div class="extra-services">
+          <div class="extra-title">Additional Services</div>
+          <p class="extra-desc">
+            Website refreshes and optimization, copywriting support, social media design kits,
+            print and packaging design, creative consulting, and SEO support—customized to what
+            your project actually needs.
+          </p>
+          <a href="ContactUsPg.html" class="extra-btn">Pricing on request</a>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="cta-row">
+          <p>Book a free consultation today.</p>
+          <a href="ContactUsPg.html" class="cta-btn">Contact me</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
